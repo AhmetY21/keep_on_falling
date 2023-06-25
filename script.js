@@ -7,9 +7,9 @@ var counter=0;
 var currentBlocks = [];
 var level = 1;
 var blockCount = 0;
-var gameSpeed = 0; // Change this value to adjust game speed
-var minHoleLength = 50; // Minimum length of a hole
-var maxHoleLength = 360; // Maximum length of a hole
+var gameSpeed = 40; // Change this value to adjust game speed
+var minHoleLength = 100; // Minimum length of a hole
+var maxHoleLength = 260; // Maximum length of a hole
 
 var modal = document.getElementById("gameStartModal");
 
@@ -23,7 +23,7 @@ var startButton = document.getElementById("startButton");
 
 function modal_disap(){
     modal.style.display = 'none'
-    gameSpeed = 1
+    gameSpeed = 5
 }
 // When the start button is clicked, start the game
 startButton.addEventListener("click", modal_disap);
@@ -102,6 +102,7 @@ document.addEventListener("keyup", event=>{
 
 
 var blocks = setInterval(function(){
+
     var blockLast = document.getElementById('block'+(counter - 1));
     var holeLast = document.getElementById('hole'+(counter - 1));
     if (counter > 0){
@@ -183,14 +184,14 @@ var blocks = setInterval(function(){
     }else{
         character.style.top = characterTop - 0.5 + "px";
     }
-},10);
+},gameSpeed);
+
 blockCount++;
 if(blockCount == 5) {
     blockCount = 0;
     level++;
     document.getElementById("level").innerText = level;
 
-    gameSpeed *= 0.9; // Increase game speed by 10%
 
 }
 
