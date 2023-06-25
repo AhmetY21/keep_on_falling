@@ -177,3 +177,8 @@ if(blockCount == 5) {
 
 }
 
+// To save the score:
+localStorage.setItem('previousScore', level);
+
+// To retrieve the score:
+var previousScore = localStorage.getItem('previousScore');

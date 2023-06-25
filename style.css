@@ -23,7 +23,15 @@
   top: 400px;
   left: 190px;
   z-index: 1000000;
+  animation-name: rotate;
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  
+  
 }
+
 .block{
   width: 400px;
   height: 20px;
@@ -83,3 +91,11 @@ button {
   font-size: 20px;
 }
 
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
