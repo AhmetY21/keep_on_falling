@@ -1,17 +1,22 @@
+
 var character = document.getElementById('character');
 var game = document.getElementById('game');
 var interval;
 var both=0;
 var counter=0;
 var currentBlocks = [];
-
 var level = 1;
 var blockCount = 0;
-
 var gameSpeed = 1; // Change this value to adjust game speed
 var minHoleLength = 50; // Minimum length of a hole
 var maxHoleLength = 360; // Maximum length of a hole
 
+
+window.addEventListener('touchstart', function onFirstTouch() {
+    window.removeEventListener('touchstart', onFirstTouch, false);
+    document.body.classList.add('user-is-touching');
+  }, false);
+  
 function getRandomColor() { // Function to get random color
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -21,50 +26,39 @@ function getRandomColor() { // Function to get random color
     return color;
 }
 
-
-
-
-function moveLeft(){
-
-    var left =
-    parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+function moveLeft() {
+    var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     if (left>0){
-    character.style.left = left - 2 + "px";
-}
+        character.style.left = left - 2 + "px";
+    }
 }
 
-function moveRight(){
-    var left =
-    parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+function moveRight() {
+    var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     if (left<380){
-    character.style.left = left + 2 + "px";
+        character.style.left = left + 2 + "px";
+    }
 }
 
+// Add event listeners for touch events on the buttons
+document.getElementById("left-button").addEventListener("touchstart", function() {
+    interval = setInterval(moveLeft,1);
+});
 
-}
+document.getElementById("left-button").addEventListener("touchend", function() {
+    clearInterval(interval);
+});
 
-window.onload = function() {
-    document.getElementById("left-button").addEventListener("touchstart", function() {
-        interval = setInterval(moveLeft,1);
-    });
+document.getElementById("right-button").addEventListener("touchstart", function() {
+    interval = setInterval(moveRight,1);
+});
 
-    document.getElementById("left-button").addEventListener("touchend", function() {
-        clearInterval(interval);
-    });
-
-    document.getElementById("right-button").addEventListener("touchstart", function() {
-        interval = setInterval(moveRight,1);
-    });
-
-    document.getElementById("right-button").addEventListener("touchend", function() {
-        clearInterval(interval);
-    });
-}
-
-
+document.getElementById("right-button").addEventListener("touchend", function() {
+    clearInterval(interval);
+});
 
 document.addEventListener("keydown",event =>{
-    console.log(event)
+    
     if(both==0)
     
     {   both++; 
@@ -79,11 +73,13 @@ document.addEventListener("keydown",event =>{
 }
 })
 document.addEventListener("keyup", event=>{
-    console.log(event)
+    
     clearInterval(interval);
     both=0;
 
 })
+
+
 
 
 
@@ -117,7 +113,7 @@ var blocks = setInterval(function(){
         hole.style.left = holeLength + 'px'
     
         var blockColor = getRandomColor();
-      
+    
         block.style.backgroundColor = blockColor;
         
         counter++;

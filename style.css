@@ -1,3 +1,8 @@
+@media only screen and (max-width: 600px) {
+  /* styles for screens smaller than 600px */
+}
+
+
 *{
   padding: 0;
   margin: 0;
@@ -44,8 +49,10 @@ body {
   margin: 0;
   background: #f0f0f0;
   font-family: Arial, sans-serif;
+  
+}.user-is-touching a:hover {
+  /* styles to disable hover effects */
 }
-
 .game-container {
   text-align: center;
   background: #fff;
@@ -75,3 +82,4 @@ button {
   padding: 10px 20px;
   font-size: 20px;
 }
+
