@@ -11,6 +11,16 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+    <div id="gameStartModal" class="modal">
+        <div class="modal-content">
+          <h2>Welcome to the Game!</h2>
+          <p>Click the start button to begin.</p>
+          <button id="startButton">Start</button>
+        </div>
+      </div>
+
+      
     <div class="game-container">
         <h1 class="game-title">Keep on Falling</h1>
         <div id="level-display">Level: <span id="level">1</span></div>
@@ -18,15 +28,15 @@
             <div id="character"></div>
         </div>
         <div class="controls">
-            <button id="left-button" class="control-button"><i class="fas fa-arrow-left"></i></button>
-            <button id="right-button" class="control-button"><i class="fas fa-arrow-right"></i></button>
-            
+        <button id="left-button" class="control-button"><i class="fas fa-arrow-left"></i></button>
+        <button id="right-button" class="control-button"><i class="fas fa-arrow-right"></i></button>
+
         </div>
     </div>
     <script src="script.js"></script>
 </body>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
 </html>
 

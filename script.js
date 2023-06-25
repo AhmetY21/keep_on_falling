@@ -7,9 +7,26 @@ var counter=0;
 var currentBlocks = [];
 var level = 1;
 var blockCount = 0;
-var gameSpeed = 1; // Change this value to adjust game speed
+var gameSpeed = 0; // Change this value to adjust game speed
 var minHoleLength = 50; // Minimum length of a hole
 var maxHoleLength = 360; // Maximum length of a hole
+
+var modal = document.getElementById("gameStartModal");
+
+// When the page loads, open the modal 
+window.onload = function() {
+  modal.style.display = "block";
+}
+
+// Get the start button
+var startButton = document.getElementById("startButton");
+
+function modal_disap(){
+    modal.style.display = 'none'
+    gameSpeed = 1
+}
+// When the start button is clicked, start the game
+startButton.addEventListener("click", modal_disap);
 
 
 window.addEventListener('touchstart', function onFirstTouch() {
@@ -177,8 +194,3 @@ if(blockCount == 5) {
 
 }
 
-// To save the score:
-localStorage.setItem('previousScore', level);
-
-// To retrieve the score:
-var previousScore = localStorage.getItem('previousScore');
