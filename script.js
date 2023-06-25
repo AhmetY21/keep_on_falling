@@ -21,6 +21,9 @@ function getRandomColor() { // Function to get random color
     return color;
 }
 
+
+
+
 function moveLeft(){
 
     var left =
@@ -39,6 +42,26 @@ function moveRight(){
 
 
 }
+
+window.onload = function() {
+    document.getElementById("left-button").addEventListener("touchstart", function() {
+        interval = setInterval(moveLeft,1);
+    });
+
+    document.getElementById("left-button").addEventListener("touchend", function() {
+        clearInterval(interval);
+    });
+
+    document.getElementById("right-button").addEventListener("touchstart", function() {
+        interval = setInterval(moveRight,1);
+    });
+
+    document.getElementById("right-button").addEventListener("touchend", function() {
+        clearInterval(interval);
+    });
+}
+
+
 
 document.addEventListener("keydown",event =>{
     console.log(event)
@@ -158,5 +181,3 @@ if(blockCount == 5) {
 
 }
 
-// Add these lines after increasing the level
-document.getElementById("level").innerText = level;
